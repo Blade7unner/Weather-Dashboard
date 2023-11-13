@@ -51,15 +51,19 @@
     flex-wrap: wrap;
   }
 
-  
-
-  
-  #current-weather, #forecast, #search-history {
-    margin: 20px 0;
+  .forecast-day {
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
   }
   
-  /* Add more styling as needed */
-
+  /* Style for the search history */
+  #search-history {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+  }
 
 
   
