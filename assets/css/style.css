@@ -19,7 +19,7 @@
   form {
     display: inline-block;
   }
-
+  
   label {
     margin-right: 10px;
   }
@@ -30,6 +30,7 @@
     padding: 5px 10px;
     cursor: pointer;
   }
+  
   
   #current-weather, #forecast, #search-history {
     margin: 20px 0;
