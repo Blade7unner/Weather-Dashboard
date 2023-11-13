@@ -58,12 +58,24 @@ button {
   border-radius: 8px;
 }
   
-  /* Style for the search history */
-  #search-history {
-    background-color: #ecf0f1;
-    padding: 20px;
-    border-radius: 10px;
-  }
+ /* Style for the search history */
+#search-history {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Additional styles for specific elements in the current weather section */
+#city-name,
+#weather-date,
+#weather-icon,
+#temperature,
+#humidity,
+#wind-speed {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
 
 
   
