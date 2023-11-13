@@ -32,7 +32,13 @@ function getWeatherForecast(city) {
       });
   }
 
-  
+  // Example of updating the UI with forecast data
+function updateForecastUI(data) {
+    // Update the UI to display 5-day forecast information
+    // Access data properties such as data.list[0].dt_txt, data.list[0].main.temp, etc.
+  }
+
+
 
 
   
