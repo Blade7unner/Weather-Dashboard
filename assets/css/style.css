@@ -46,17 +46,17 @@ button {
 
 /* Style for the 5-day forecast information */
 #forecast {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
-  .forecast-day {
-    background-color: #ecf0f1;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 8px;
-  }
+.forecast-day {
+  background-color: #ecf0f1;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+}
   
   /* Style for the search history */
   #search-history {
