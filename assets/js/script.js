@@ -1,4 +1,4 @@
-const apiKey = 'your_actual_api_key';
+const apiKey = 'c82895bdc50b848e2df6533322b114cb';
 // Example of fetching current weather data
 function getCurrentWeather(city) {
     // Use fetch to get current weather data from the OpenWeatherMap API
