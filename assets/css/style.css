@@ -20,7 +20,22 @@ body {
     display: inline-block;
   }
 
+  label {
+    margin-right: 10px;
+  }
   
+  button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #current-weather, #forecast, #search-history {
+    margin: 20px 0;
+  }
+  
+  /* Add more styling as needed */
 
 
 
