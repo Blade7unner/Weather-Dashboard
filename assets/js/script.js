@@ -60,6 +60,18 @@ function updateForecastUI(data) {
       // Update the UI elements with the retrieved forecast data
       // For example, $("#forecast").append(`Date: ${date}, Temperature: ${temperature}<br>`);
     }
+}
+
+// Event listener for the form submission
+$("#city-form").submit(function (event) {
+  event.preventDefault();
+  const city = $("#city-input").val();
+  // Call functions to fetch and update weather data
+  getCurrentWeather(city);
+  getWeatherForecast(city);
+});
+
+
     
 
 
