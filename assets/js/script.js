@@ -49,6 +49,15 @@ function updateForecastUI(data) {
     }
   }
 
+  // Event listener for the form submission
+$("#city-form").submit(function (event) {
+    event.preventDefault();
+    const city = $("#city-input").val();
+    // Call functions to fetch and update weather data
+    getCurrentWeather(city);
+    getWeatherForecast(city);
+  });
+
   
 
 
