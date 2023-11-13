@@ -9,7 +9,35 @@ function getCurrentWeather(city) {
       // Extract latitude and longitude from the geocoding response
       const location = geoData[0];
 
-      
+      // Now, use the coordinates to fetch current weather data from the OpenWeatherMap Forecast API
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(weatherData => {
+          // Extract relevant information from data and update UI
+          updateCurrentWeatherUI(weatherData);
+        })
+        .catch(error => {
+          console.error('Error fetching current weather:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Error fetching coordinates:', error);
+    });
+}
+
+// Example of updating the UI with current weather data
+function updateCurrentWeatherUI(data) {
+    // Update the UI to display current weather information
+    // Access data properties such as data.name, data.main.temp, etc.
+    const cityName = data.city.name;
+    const temperature = data.list[0].main.temp;
+    // Update the UI elements with the retrieved data
+    // For example, $("#current-weather").text(`City: ${cityName}, Temperature: ${temperature}`);
+  }
+
+  
+
+
 
   // Example of updating the UI with current weather data
 function updateCurrentWeatherUI(data) {
