@@ -1,7 +1,8 @@
+const apiKey = 'c82895bdc50b848e2df6533322b114cb';
 // Example of fetching current weather data
 function getCurrentWeather(city) {
     // Use fetch to get current weather data from the OpenWeatherMap API
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={YOUR_API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={c82895bdc50b848e2df6533322b114cb}`)
       .then(response => response.json())
       .then(data => {
         // Extract relevant information from data and update UI
@@ -25,7 +26,7 @@ function updateCurrentWeatherUI(data) {
   // Example of fetching forecast data
 function getWeatherForecast(city) {
     // Use fetch to get 5-day forecast data from the OpenWeatherMap API
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid={YOUR_API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid={c82895bdc50b848e2df6533322b114cb}`)
       .then(response => response.json())
       .then(data => {
         // Extract relevant information from data and update UI
