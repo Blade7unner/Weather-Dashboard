@@ -49,7 +49,26 @@ function getWeatherForecast(city) {
       });
   }
 
-  
+  // Example of updating the UI with forecast data
+function updateForecastUI(data) {
+    // Update the UI to display 5-day forecast information
+    // Access data properties such as data.list[0].dt_txt, data.list[0].main.temp, etc.
+    // Loop through the forecast data and update the UI accordingly
+    for (const forecast of data.list) {
+      const date = forecast.dt_txt;
+      const temperature = forecast.main.temp;
+      // Update the UI elements with the retrieved forecast data
+      // For example, $("#forecast").append(`Date: ${date}, Temperature: ${temperature}<br>`);
+    }
+    
+
+
+
+
+
+
+
+
 
 
 
