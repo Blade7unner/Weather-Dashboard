@@ -31,6 +31,19 @@
     cursor: pointer;
   }
   
+  #current-weather,
+#forecast,
+#search-history {
+  margin: 20px 0;
+}
+
+/* Style for the current weather information */
+#current-weather {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+}
+
   
   #current-weather, #forecast, #search-history {
     margin: 20px 0;
