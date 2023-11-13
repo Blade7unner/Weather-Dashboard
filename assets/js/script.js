@@ -12,6 +12,20 @@ function getCurrentWeather(city) {
       });
   }
 
+  // Example of updating the UI with current weather data
+function updateCurrentWeatherUI(data) {
+    // Update the UI to display current weather information
+    // Access data properties such as data.name, data.main.temp, etc.
+    const cityName = data.name;
+    const temperature = data.main.temp;
+    // Update the UI elements with the retrieved data
+    // For example, $("#current-weather").text(`City: ${cityName}, Temperature: ${temperature}`);
+  }
+
+  
+
+
+
 // Example of updating the UI with current weather data
 function updateCurrentWeatherUI(data) {
     // Update the UI to display current weather information
