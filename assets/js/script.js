@@ -1,20 +1,20 @@
 const apiKey = 'c82895bdc50b848e2df6533322b114cb';
 
-// Example of fetching current weather data
+// Function to fetch and display current weather
 function getCurrentWeather(city) {
   // Use fetch to get geographical coordinates from OpenWeatherMap Geocoding API
   fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
     .then(response => response.json())
     .then(geoData => {
-      // Extract latitude and longitude from the geocoding response
-      const location = geoData[0];
+      const location = geoData[0]; // Extract coordinates
 
-      // Now, use the coordinates to fetch current weather data from the OpenWeatherMap Forecast API
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`)
+      // Fetch current weather data using coordinates
+      fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
         .then(response => response.json())
         .then(weatherData => {
           // Extract relevant information from data and update UI
-          updateCurrentWeatherUI(weatherData);
+          updateCurrentWeatherUI(city, weatherData);
+          saveSearchHistory(city); // Save searched city to history
         })
         .catch(error => {
           console.error('Error fetching current weather:', error);
