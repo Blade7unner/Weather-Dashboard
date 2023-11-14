@@ -14,8 +14,6 @@ function getCurrentWeather(city) {
       console.error('Error fetching current weather:', error);
     });
 }
-
-
 // Function to update the UI with current weather information
 function updateCurrentWeatherUI(city, data) {
   if (data.main && data.main.temp) {
@@ -108,8 +106,8 @@ document.getElementById('city-form').addEventListener('submit', function (event)
 });
 
 // Initial weather display for a default city (e.g., your current location)
-getCurrentWeather('New York');
-getWeatherForecast('New York');
+getCurrentWeather('Atlanta');
+getWeatherForecast('Atlanta');
 
 
 
