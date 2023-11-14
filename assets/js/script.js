@@ -65,7 +65,7 @@ function updateForecastUI(forecastData) {
 
   // Loop through the forecast data and create forecast items
   forecastData.forEach(item => {
-    const date = new Date(item.dt_txt);
+    const date = new Date(item.dt * 1000);
     const weatherIcon = item.weather[0].icon;
     const temperature = item.main.temp;
     const windSpeed = item.wind.speed;
