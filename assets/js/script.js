@@ -35,7 +35,15 @@ function updateCurrentWeatherUI(city, data) {
   const humidity = currentWeather.humidity;
   const windSpeed = currentWeather.wind_speed;
 
-  
+  // Update the UI elements with the retrieved data
+  document.getElementById('city-name').textContent = cityName;
+  document.getElementById('weather-date').textContent = formatDate(weatherDate);
+  document.getElementById('weather-icon').src = `https://openweathermap.org/img/w/${weatherIcon}.png`;
+  document.getElementById('temperature').textContent = `Temperature: ${temperature} °F`;
+  document.getElementById('humidity').textContent = `Humidity: ${humidity}%`;
+  document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} MPH`;
+}
+
 
   // Example of fetching forecast data
 function getWeatherForecast(city) {
