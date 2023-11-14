@@ -62,26 +62,45 @@ function updateForecastUI(forecastData) {
   const forecastInfo = document.getElementById('forecast-info');
   forecastInfo.innerHTML = ''; // Clear previous data
 
-  // Loop through the forecast data and create forecast items
+  // Create an object to group forecast data by date (ignoring hours)
+  const forecastByDate = {};
+
   forecastData.forEach(item => {
     const date = new Date(item.dt * 1000);
-    const weatherIcon = item.weather[0].icon;
-    const temperature = item.main.temp;
-    const windSpeed = item.wind.speed;
-    const humidity = item.main.humidity;
+    const dateKey = date.toDateString(); // Extract date without hours
 
-    const forecastItem = document.createElement('div');
-    forecastItem.classList.add('forecast-item'); // Add a class for styling
-    forecastItem.innerHTML = `
-      <p>${formatDate(date)}</p>
-      <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
-      <p>Temp: ${temperature} °F</p>
-      <p>Wind: ${windSpeed} MPH</p>
-      <p>Humidity: ${humidity}%</p>
-    `;
+    // Create an array for each date if it doesn't exist
+    if (!forecastByDate[dateKey]) {
+      forecastByDate[dateKey] = [];
+    }
 
-    forecastInfo.appendChild(forecastItem);
+    // Push the forecast data for the date (without hours) into the array
+    forecastByDate[dateKey].push(item);
   });
+
+  // Loop through the grouped forecast data and create forecast items for each date
+  for (const dateKey in forecastByDate) {
+    if (forecastByDate.hasOwnProperty(dateKey)) {
+      const dateForecast = forecastByDate[dateKey][0]; // Take the first item for the date
+      const weatherIcon = dateForecast.weather[0].icon;
+      const temperature = dateForecast.main.temp;
+      const windSpeed = dateForecast.wind.speed;
+      const humidity = dateForecast.main.humidity;
+      const date = new Date(dateForecast.dt * 1000);
+
+      const forecastItem = document.createElement('div');
+      forecastItem.classList.add('forecast-item'); // Add a class for styling
+      forecastItem.innerHTML = `
+        <p>${formatDate(date)}</p>
+        <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
+        <p>Temp: ${temperature} °F</p>
+        <p>Wind: ${windSpeed} MPH</p>
+        <p>Humidity: ${humidity}%</p>
+      `;
+
+      forecastInfo.appendChild(forecastItem);
+    }
+  }
 }
 
 // Function to save searched city to search history
@@ -109,6 +128,12 @@ document.getElementById('city-form').addEventListener('submit', function (event)
 // Initial weather display for a default city (e.g., your current location)
 getCurrentWeather('Atlanta');
 getWeatherForecast('Atlanta');
+
+
+
+
+    
+
 
 
 
