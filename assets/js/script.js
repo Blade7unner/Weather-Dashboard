@@ -14,6 +14,7 @@ function getCurrentWeather(city) {
       console.error('Error fetching current weather:', error);
     });
 }
+
 // Function to update the UI with current weather information
 function updateCurrentWeatherUI(city, data) {
   if (data.main && data.main.temp) {
@@ -70,7 +71,7 @@ function updateForecastUI(forecastData) {
     const humidity = item.main.humidity;
 
     const forecastItem = document.createElement('div');
-    forecastItem.classList.add('forecast-item');
+    forecastItem.classList.add('forecast-item'); // Add a class for styling
     forecastItem.innerHTML = `
       <p>${formatDate(date)}</p>
       <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
@@ -108,6 +109,7 @@ document.getElementById('city-form').addEventListener('submit', function (event)
 // Initial weather display for a default city (e.g., your current location)
 getCurrentWeather('Atlanta');
 getWeatherForecast('Atlanta');
+
 
 
 
