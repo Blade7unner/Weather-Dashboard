@@ -18,15 +18,14 @@ function getCurrentWeather(city) {
 
 // Function to update the UI with current weather information
 function updateCurrentWeatherUI(city, data) {
-  if (data.current && data.current.dt) {
+  if (data.main && data.main.temp) {
     // Extract relevant data from the response
-    const currentWeather = data.current;
     const cityName = city;
-    const weatherDate = new Date(currentWeather.dt * 1000); // Convert timestamp to date
-    const weatherIcon = currentWeather.weather[0].icon;
-    const temperature = currentWeather.temp;
-    const humidity = currentWeather.humidity;
-    const windSpeed = currentWeather.wind_speed;
+    const weatherDate = new Date(data.dt * 1000); // Convert timestamp to date
+    const weatherIcon = data.weather[0].icon;
+    const temperature = data.main.temp;
+    const humidity = data.main.humidity;
+    const windSpeed = data.wind.speed;
 
     // Update the UI elements with the retrieved data
     document.getElementById('city-name').textContent = cityName;
