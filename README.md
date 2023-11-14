@@ -46,8 +46,7 @@ This is my Weather Dashboard project, an application that allows travelers to ch
 
 ## Screenshots
 
-![Screenshot 1](./path/to/screenshot1.png)
-![Screenshot 2](./path/to/screenshot2.png)
+[Screenshot 1](./path/to/screenshot1.png)
 
 ## Search History
 
