@@ -37,23 +37,29 @@ function getCurrentWeather(city) {
 
 // Function to update the UI with current weather information
 function updateCurrentWeatherUI(city, data) {
-  // Extract relevant data from the response
-  const currentWeather = data.current;
-  const cityName = city;
-  const weatherDate = new Date(currentWeather.dt * 1000); // Convert timestamp to date
-  const weatherIcon = currentWeather.weather[0].icon;
-  const temperature = currentWeather.temp;
-  const humidity = currentWeather.humidity;
-  const windSpeed = currentWeather.wind_speed;
+  if (data.current && data.current.dt) {
+    // Extract relevant data from the response
+    const currentWeather = data.current;
+    const cityName = city;
+    const weatherDate = new Date(currentWeather.dt * 1000); // Convert timestamp to date
+    const weatherIcon = currentWeather.weather[0].icon;
+    const temperature = currentWeather.temp;
+    const humidity = currentWeather.humidity;
+    const windSpeed = currentWeather.wind_speed;
 
-  // Update the UI elements with the retrieved data
-  document.getElementById('city-name').textContent = cityName;
-  document.getElementById('weather-date').textContent = formatDate(weatherDate);
-  document.getElementById('weather-icon').src = `https://openweathermap.org/img/w/${weatherIcon}.png`;
-  document.getElementById('temperature').textContent = `Temperature: ${temperature} °F`;
-  document.getElementById('humidity').textContent = `Humidity: ${humidity}%`;
-  document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} MPH`;
+    // Update the UI elements with the retrieved data
+    document.getElementById('city-name').textContent = cityName;
+    document.getElementById('weather-date').textContent = formatDate(weatherDate);
+    document.getElementById('weather-icon').src = `https://openweathermap.org/img/w/${weatherIcon}.png`;
+    document.getElementById('temperature').textContent = `Temperature: ${temperature} °F`;
+    document.getElementById('humidity').textContent = `Humidity: ${humidity}%`;
+    document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} MPH`;
+  } else {
+    console.error('Error: Unexpected API response format');
+  }
 }
+
+
 
 // Function to format the date in 'Month Day, Year' format
 function formatDate(date) {
