@@ -59,8 +59,6 @@ function updateCurrentWeatherUI(city, data) {
   }
 }
 
-
-
 // Function to format the date in 'Month Day, Year' format
 function formatDate(date) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
