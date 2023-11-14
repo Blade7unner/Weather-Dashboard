@@ -90,6 +90,19 @@ function updateForecastUI(forecastData) {
   });
 }
 
+// Function to save searched city to search history
+function saveSearchHistory(city) {
+  const historyList = document.getElementById('history-list');
+  const searchItem = document.createElement('li');
+  searchItem.textContent = city;
+  searchItem.addEventListener('click', () => {
+    // Handle click on search history item to re-fetch weather data
+    getCurrentWeather(city);
+    getWeatherForecast(city);
+  });
+  historyList.appendChild(searchItem);
+}
+
 
 
 
