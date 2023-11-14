@@ -24,15 +24,18 @@ function getCurrentWeather(city) {
       console.error('Error fetching coordinates:', error);
     });
 }
-// Updating the UI with current weather data
-function updateCurrentWeatherUI(data) {
-    // Update the UI to display current weather information
-    // Access data properties such as data.name, data.main.temp, etc.
-    const cityName = data.city.name;
-    const temperature = data.list[0].main.temp;
-    // Update the UI elements with the retrieved data
-    // For example, $("#current-weather").text(`City: ${cityName}, Temperature: ${temperature}`);
-  }
+// Function to update the UI with current weather information
+function updateCurrentWeatherUI(city, data) {
+  // Extract relevant data from the response
+  const currentWeather = data.current;
+  const cityName = city;
+  const weatherDate = new Date(currentWeather.dt * 1000); // Convert timestamp to date
+  const weatherIcon = currentWeather.weather[0].icon;
+  const temperature = currentWeather.temp;
+  const humidity = currentWeather.humidity;
+  const windSpeed = currentWeather.wind_speed;
+
+  
 
   // Example of fetching forecast data
 function getWeatherForecast(city) {
