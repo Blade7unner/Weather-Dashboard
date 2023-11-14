@@ -39,7 +39,7 @@ button {
 
 /* Style for the current weather information */
 #current-weather {
-  background-color: #ecf0f1;
+  background-color: #3498db;
   padding: 20px;
   border-radius: 10px;
 }
@@ -52,7 +52,7 @@ button {
 }
 
 .forecast-item {
-  background-color: #ecf0f1;
+  background-color: #3498db;
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
@@ -67,7 +67,7 @@ button {
 
 /* Style for the search history */
 #search-history {
-  background-color: #ecf0f1;
+  background-color: #3498db;
   padding: 20px;
   border-radius: 10px;
 }
