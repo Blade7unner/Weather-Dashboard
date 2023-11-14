@@ -6,24 +6,35 @@ function getCurrentWeather(city) {
   fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
     .then(response => response.json())
     .then(geoData => {
-      const location = geoData[0]; // Extract coordinates
+      if (geoData.length > 0) {
+        const location = geoData[0]; // Extract coordinates
 
-      // Fetch current weather data using coordinates
-      fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
-        .then(response => response.json())
-        .then(weatherData => {
-          // Extract relevant information from data and update UI
-          updateCurrentWeatherUI(city, weatherData);
-          saveSearchHistory(city); // Save searched city to history
-        })
-        .catch(error => {
-          console.error('Error fetching current weather:', error);
-        });
+        // Fetch current weather data using coordinates
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error('API request failed');
+            }
+          })
+          .then(weatherData => {
+            // Extract relevant information from data and update UI
+            updateCurrentWeatherUI(city, weatherData);
+            saveSearchHistory(city); // Save searched city to history
+          })
+          .catch(error => {
+            console.error('Error fetching current weather:', error);
+          });
+      } else {
+        console.error('Error: No location data found');
+      }
     })
     .catch(error => {
       console.error('Error fetching coordinates:', error);
     });
 }
+
 // Function to update the UI with current weather information
 function updateCurrentWeatherUI(city, data) {
   // Extract relevant data from the response
