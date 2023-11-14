@@ -7,7 +7,7 @@ This is my Weather Dashboard project, an application that allows travelers to ch
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
-- [Demo](#demo)
+- [Demo](#deployed-application)
 - [Screenshots](#screenshots)
 
 ## Installation
