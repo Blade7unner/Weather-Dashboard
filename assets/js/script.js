@@ -44,6 +44,65 @@ function updateCurrentWeatherUI(city, data) {
   document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} MPH`;
 }
 
+// Function to format the date in 'Month Day, Year' format
+function formatDate(date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
+}
+
+// Function to fetch and display 5-day forecast
+function getWeatherForecast(city) {
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      // Extract relevant information from data and update UI
+      updateForecastUI(data.list);
+    })
+    .catch(error => {
+      console.error('Error fetching weather forecast:', error);
+    });
+}
+
+// Function to update the UI with forecast data
+function updateForecastUI(forecastData) {
+  const forecastInfo = document.getElementById('forecast-info');
+  forecastInfo.innerHTML = ''; // Clear previous data
+
+  // Loop through the forecast data and create forecast items
+  forecastData.forEach(item => {
+    const date = new Date(item.dt_txt);
+    const weatherIcon = item.weather[0].icon;
+    const temperature = item.main.temp;
+    const windSpeed = item.wind.speed;
+    const humidity = item.main.humidity;
+
+    const forecastItem = document.createElement('div');
+    forecastItem.classList.add('forecast-item');
+    forecastItem.innerHTML = `
+      <p>${formatDate(date)}</p>
+      <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
+      <p>Temp: ${temperature} °F</p>
+      <p>Wind: ${windSpeed} MPH</p>
+      <p>Humidity: ${humidity}%</p>
+    `;
+
+    forecastInfo.appendChild(forecastItem);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Example of fetching forecast data
 function getWeatherForecast(city) {
