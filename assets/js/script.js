@@ -47,7 +47,7 @@ function formatDate(date) {
 
 // Function to fetch and display 5-day forecast
 function getWeatherForecast(city) {
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
       // Extract relevant information from data and update UI
