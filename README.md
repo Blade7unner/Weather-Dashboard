@@ -32,17 +32,13 @@ This is my Weather Dashboard project, an application that allows travelers to ch
 - jQuery
 - OpenWeatherMap API
 
-## Demo
+## Deployed Application
 
-[Link to live demo]()
+You can access the Weather Dashboard application [here](https://blade7unner.github.io/Weather-Dashboard/).
 
 ## Screenshots
 
 [Screenshot 1](./assets/images/screenshot1.png)
-
-## Deployed Application
-
-You can access the deployed Work Day Scheduler application [here](https://blade7unner.github.io/Module5Challenge/).
 
 
 
