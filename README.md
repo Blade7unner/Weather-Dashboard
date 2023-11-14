@@ -40,6 +40,11 @@ This is my Weather Dashboard project, an application that allows travelers to ch
 1. Clone the repository to your local machine.
 2. Open the `index.html` file in a web browser.
 
+## Search History
+
+- The searched city is added to the search history.
+- [Specify any additional details about accessing or managing the search history.]
+
 ## Demo
 
 [Link to live demo]()
@@ -48,9 +53,12 @@ This is my Weather Dashboard project, an application that allows travelers to ch
 
 [Screenshot 1](./assets/images/screenshot1.png)
 
-## Search History
+## Deployed Application
 
-- The searched city is added to the search history.
-- [Specify any additional details about accessing or managing the search history.]
+You can access the deployed Work Day Scheduler application [here](https://blade7unner.github.io/Module5Challenge/).
+
+
+
+
 
 

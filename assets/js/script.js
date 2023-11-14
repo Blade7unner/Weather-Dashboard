@@ -20,7 +20,7 @@ function updateCurrentWeatherUI(city, data) {
   if (data.main && data.main.temp) {
     // Extract relevant data from the response
     const cityName = city;
-    const weatherDate = new Date(data.dt * 1000); // Convert timestamp to date
+    const weatherDate = new Date(data.dt * 1000); 
     const weatherIcon = data.weather[0].icon;
     const temperature = data.main.temp;
     const humidity = data.main.humidity;
@@ -62,26 +62,26 @@ function updateForecastUI(forecastData) {
   const forecastInfo = document.getElementById('forecast-info');
   forecastInfo.innerHTML = ''; // Clear previous data
 
-  // Create an object to group forecast data by date (ignoring hours)
+ 
   const forecastByDate = {};
 
   forecastData.forEach(item => {
     const date = new Date(item.dt * 1000);
-    const dateKey = date.toDateString(); // Extract date without hours
+    const dateKey = date.toDateString(); 
 
-    // Create an array for each date if it doesn't exist
+    
     if (!forecastByDate[dateKey]) {
       forecastByDate[dateKey] = [];
     }
 
-    // Push the forecast data for the date (without hours) into the array
+    
     forecastByDate[dateKey].push(item);
   });
 
   // Loop through the grouped forecast data and create forecast items for each date
   for (const dateKey in forecastByDate) {
     if (forecastByDate.hasOwnProperty(dateKey)) {
-      const dateForecast = forecastByDate[dateKey][0]; // Take the first item for the date
+      const dateForecast = forecastByDate[dateKey][0]; 
       const weatherIcon = dateForecast.weather[0].icon;
       const temperature = dateForecast.main.temp;
       const windSpeed = dateForecast.wind.speed;
@@ -89,7 +89,7 @@ function updateForecastUI(forecastData) {
       const date = new Date(dateForecast.dt * 1000);
 
       const forecastItem = document.createElement('div');
-      forecastItem.classList.add('forecast-item'); // Add a class for styling
+      forecastItem.classList.add('forecast-item');
       forecastItem.innerHTML = `
         <p>${formatDate(date)}</p>
         <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
@@ -125,7 +125,7 @@ document.getElementById('city-form').addEventListener('submit', function (event)
   getWeatherForecast(city);
 });
 
-// Initial weather display for a default city (e.g., your current location)
+// Initial weather display for a default city 
 getCurrentWeather('Atlanta');
 getWeatherForecast('Atlanta');
 
