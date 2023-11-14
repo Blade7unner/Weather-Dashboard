@@ -103,6 +103,19 @@ function saveSearchHistory(city) {
   historyList.appendChild(searchItem);
 }
 
+// Event listener for the form submission
+document.getElementById('city-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const city = document.getElementById('city-input').value;
+  // Call functions to fetch and update weather data
+  getCurrentWeather(city);
+  getWeatherForecast(city);
+});
+
+// Initial weather display for a default city (e.g., your current location)
+getCurrentWeather('New York');
+getWeatherForecast('New York');
+
 
 
 
