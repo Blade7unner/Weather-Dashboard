@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-This is my Weather Dashboard project, an application that allows travelers to check the weather outlook for multiple cities.
+The Weather Dashboard repository offers a simple and intuitive solution for accessing weather information. With this tool, users can easily check the weather forecast for various locations. It leverages APIs to fetch real-time weather data and presents it in a user-friendly dashboard interface. Whether you're planning a trip or just curious about the weather, this dashboard provides accurate and up-to-date information at your fingertips.
 
 ## Table of Contents
 
